@@ -28,6 +28,19 @@ module.exports = class Cart {
         });
         return total;
     }
+    count(distinct = false) {
+        if (this._items === null || this._items.length === 0) {
+            throw new EmptyCartException();
+        }
+        if (distinct) {
+            return this._items.length;
+        }
+        let count = 0;
+        this._items.forEach(item => {
+            count += item.quantity;
+        });
+        return count;
+    }
 
 
 }
