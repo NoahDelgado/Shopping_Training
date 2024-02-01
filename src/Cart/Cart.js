@@ -18,4 +18,16 @@ module.exports = class Cart {
         return this._items;
     }
 
+    get total() {
+        if (this._items === null || this._items.length === 0) {
+            throw new EmptyCartException();
+        }
+        let total = 0;
+        this._items.forEach(item => {
+            total += item.total;
+        });
+        return total;
+    }
+
+
 }
