@@ -41,6 +41,16 @@ module.exports = class Cart {
         });
         return count;
     }
-
+    add(items) {
+        if (this._items === null) {
+            this._items = [];
+        }
+        if (items === null || items.length === 0) {
+            throw new UpdateCartException();
+        }
+        items.forEach(item => {
+            this._items.push(item);
+        });
+    }
 
 }
