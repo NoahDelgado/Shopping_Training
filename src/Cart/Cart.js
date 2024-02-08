@@ -49,7 +49,7 @@ module.exports = class Cart {
             throw new UpdateCartException();
         }
         items.forEach(item => {
-            //this._items.push(item);
+            this._items.push(item);
         });
     }
 
